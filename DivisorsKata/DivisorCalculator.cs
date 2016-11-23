@@ -1,19 +1,23 @@
-﻿namespace DivisorsKata
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace DivisorsKata
 {
     public class DivisorCalculator
     {
         public int[] Calculate(int inputNumber)
         {
-            switch (inputNumber)
+            var divisors = new List<int>();
+
+            for (var numberLessThanOrEqualToInput = 4;
+                numberLessThanOrEqualToInput > 0;
+                numberLessThanOrEqualToInput--)
             {
-                case 1:
-                    return new[] { 1 };
-                case 2:
-                    return new[] { 1, 2 };
-                case 3:
-                    return new[] { 1, 3 };
+                if (inputNumber%numberLessThanOrEqualToInput == 0)
+                    divisors.Add(numberLessThanOrEqualToInput);
             }
-            return null;
+
+            return divisors.OrderBy(number => number).ToArray();
         }
     }
 }
