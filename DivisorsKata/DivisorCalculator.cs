@@ -12,10 +12,12 @@ namespace DivisorsKata
 
             if (inputNumber == 1 || inputNumber == 2 || inputNumber == 3 || inputNumber == 4 || inputNumber == 20)
             {
-                for (var i = 20; i > 0; i--)
+                for (var numberLessThanOrEqualToInput  = 20; 
+                    numberLessThanOrEqualToInput > 0; 
+                    numberLessThanOrEqualToInput--)
                 {
-                    if (inputNumber % i == 0)
-                        divisors.Add(i);
+                    if (inputNumber % numberLessThanOrEqualToInput == 0)
+                        divisors.Add(numberLessThanOrEqualToInput);
                 }
                 return divisors.OrderBy(number => number).ToArray();
             }
